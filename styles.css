@@ -806,12 +806,20 @@ body {
     padding: 2rem 0;
   }
   .num-digitos {
-    font-size: 20px;
+    font-size: 10px;
   }
 
   .nums-grid {
     grid-template-columns: 1fr 1fr;
     gap: 8px;
+  }
+
+  .num-info{
+    padding: 5px;
+  }
+
+  .num.nome{
+    font-size:10px;
   }
 
   .num-principal {
@@ -820,7 +828,7 @@ body {
     flex-wrap: wrap;
   }
   .num-badge {
-    margin-top: 4px;
+   display: none;
   }
 
   .num-card {
@@ -829,6 +837,10 @@ body {
 
   .num-digitos {
     font-size: 20px;
+  }
+
+  .wa-btn{
+    text-align: center;
   }
 
   .carousel-slide {
