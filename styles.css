@@ -8,6 +8,8 @@
 
 html {
   scroll-behavior: smooth;
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
 body {
@@ -16,6 +18,7 @@ body {
   color: #4a2874;
   width: 100%;
   overflow-x: hidden;
+  max-width: 100vw;
 }
 
 /* ══════════════════════════════════════════
@@ -780,6 +783,13 @@ body {
    RESPONSIVO — MOBILE (480px)
 ══════════════════════════════════════════ */
 @media (max-width: 480px) {
+  
+  /* Garante que o texto quebre e não empurre a tela */
+  body {
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+
   .mapa {
     display: none;
   }
@@ -805,46 +815,83 @@ body {
   .numeros-sec {
     padding: 2rem 0;
   }
-  .num-digitos {
-    font-size: 10px;
+
+  /* --- O CULPADO: CARD PRINCIPAL --- */
+  .num-principal {
+    padding: 1rem;
+    gap: 12px;
+    min-width: 0; /* Essencial! Impede que o card vaze a tela */
   }
 
+  .num-principal .num-icon-wrap {
+    width: 48px;
+    height: 48px;
+    font-size: 22px; 
+  }
+
+  .num-principal .num-digitos {
+    font-size: 24px; /* Diminuímos o número para não explodir a largura */
+  }
+
+  /* --- MANTENDO 2 COLUNAS LADO A LADO --- */
   .nums-grid {
     grid-template-columns: 1fr 1fr;
     gap: 8px;
   }
 
-  .num-info{
-    padding: 5px;
+  .num-card {
+    padding: 8px;
+    gap: 8px;
+    min-width: 0; /* Permite que o card encolha e fique na tela! */
   }
 
-  .num.nome{
-    font-size:10px;
+  .num-info {
+    min-width: 0; 
   }
 
-  .num-principal {
-    padding: 1rem 1.1rem;
-    gap: 12px;
-    flex-wrap: wrap;
+  .num-card .num-icon-wrap {
+    width: 38px;
+    height: 38px;
+    font-size: 20px;
   }
+
+  .num-card .num-nome {
+    font-size: 11px;
+    margin-bottom: 2px;
+    white-space: normal;
+  }
+
+  .num-card .num-digitos {
+    font-size: 18px;
+  }
+
+  .num-card .num-desc {
+    font-size: 10px;
+  }
+
   .num-badge {
    display: none;
   }
 
-  .num-card {
-    padding: 12px;
-  }
-
-  .num-digitos {
-    font-size: 20px;
-  }
-
-  .wa-btn{
+  /* Impede o botão do whatsapp de vazar */
+  .wa-btn {
+    padding: 12px 14px;
+    font-size: 13px;
     text-align: center;
+    white-space: normal;
+    min-width: 0;
   }
 
+  .wa-sub {
+    font-size: 12px;
+    padding: 0 10px;
+  }
+
+  /* Trava o carrossel na largura exata da tela */
   .carousel-slide {
     padding: 1.1rem;
+    flex: 0 0 100%;
+    max-width: 100%;
   }
 
   .app-card {
